@@ -6,18 +6,18 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 ### Initialization
 
-[x] Setup initial file structure
+- [x] Setup initial file structure
 
 ### Front-end TODO
 
-[ ] Create three menu bars components
-[ ] Refactor menu bars for dynamic rendering
-[ ] Create review page component
-[ ] Dynamically render pop-up review page
-[ ] Request review data to the server
+- [ ] Create three menu bars components
+- [ ] Refactor menu bars for dynamic rendering
+- [ ] Create review page component
+- [ ] Dynamically render pop-up review page
+- [ ] Request review data to the server
 
 ### Back-end TODO
 
-[ ] Implement the database schema
-[ ] Generate random review data
-[ ] Refactor server for interaction with database
+- [ ] Implement the database schema
+- [ ] Generate random review data
+- [ ] Refactor server for interaction with database
