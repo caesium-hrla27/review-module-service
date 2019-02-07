@@ -10,16 +10,35 @@ class App extends React.Component {
     this.state = {
       shippingInfoToggle: false
     }
+
+    this.handleShippingClick = this.handleShippingClick.bind(this);
   }
 
+  handleShippingClick(e) {
+    e.preventDefault();
+    this.setState({
+      shippingInfoToggle: !this.state.shippingInfoToggle
+    })
+  } 
+
   render() {
+    let shippingInfo;
+
+    if (this.state.shippingInfoToggle) {
+      shippingInfo = <ShippingInfo 
+        title="Free Shipping & Returns" 
+        toggle={this.state.shippingInfoToggle}
+      />
+    }
     return (
       <div>
-        <button>Free Shipping & Returns <a>V</a> </button>
-        <ShippingInfo 
-          title="Free Shipping & Returns" 
-          toggle={this.state.shippingInfoToggle}
-        />
+        <div onClick={this.handleShippingClick}>Free Shipping & Returns
+          {this.state.shippingInfoToggle
+          ? <a>^</a>
+          : <a>V</a>
+          }
+        </div>
+        {shippingInfo}
       </div>
     )
   }
