@@ -1,17 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
+import ShippingInfo from './ShippingInfo.jsx';
+
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hello: true
+      shippingInfoToggle: false
     }
   }
 
   render() {
     return (
       <div>
-        <h1>Welcome to review module</h1>
+        <button>Free Shipping & Returns <a>V</a> </button>
+        <ShippingInfo 
+          title="Free Shipping & Returns" 
+          toggle={this.state.shippingInfoToggle}
+        />
       </div>
     )
   }
