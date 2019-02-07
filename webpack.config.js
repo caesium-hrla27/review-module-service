@@ -1,24 +1,25 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, './client/'),
+  entry: path.resolve(__dirname, "./client"), // where we want to transpile
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './client/static')
   },
+  mode: "development", // it tells that it will only transpile "production" changes
   module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node-module/,
-      use: 'babel-loader',
-    }]
+    rules: [
+      {
+        loader: "babel-loader",
+        test: /\.js[x]?/, // forward slash blahblah and forward slash tells us regex
+        exclude: /node_modules/,
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"]
+        }
+      }
+    ]
   },
-  context: __dirname,
-  devServer: {
-    proxy: {
-      '/side-bar': 'http://localhost:3000'
-    },
-    contentBase: path.join(__dirname, './client/static'),
-    https: false
+  resolve: { // for importing and exporting, if extensions are not attached it checks for those extensions
+    extensions: ['.js', 'jsx']
   }
-}
+};
