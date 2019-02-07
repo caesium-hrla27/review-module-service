@@ -11,7 +11,8 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 ### Front-end TODO
 
 - [ ] Create drop down menu
-  - [ ] Create static "Free Shipping & Returns" menu
+  - [x] Create static "Free Shipping & Returns" menu
+    - [x] Dynamically hide and show texts
   - [ ] Create dynamically rendering "Reviews" menu
     - [ ] Create "More Reviews" button for pop up window
   - [ ] Create dynamically rendering "More Info" menu
