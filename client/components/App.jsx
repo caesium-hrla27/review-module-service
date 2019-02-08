@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import ShippingInfo from './ShippingInfo.jsx';
 import Reviews from './Reviews.jsx';
 import MoreInfo from './MoreInfo.jsx';
-
-
+import ArrowUp from './assets/ArrowUp.jsx';
+import ArrowDown from './assets/ArrowDown.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -72,22 +72,24 @@ class App extends React.Component {
       <div>
         <div onClick={this.handleShippingClick}>Free Shipping & Returns
           {this.state.shippingInfoToggle
-          ? <a>^</a>
-          : <a>V</a>
+          ? <ArrowUp />
+          : <ArrowDown />
           }
         </div>
         {shippingInfo}
         <div onClick={this.handleReviewsToggle}>Reviews
+          <span>
           {this.state.reviewsToggle
-          ? <a>^</a>
-          : <a>V</a>
+            ? <ArrowUp />
+            : <ArrowDown />
           }
+          </span>
         </div>
         {reviews}
         <div onClick={this.handleMoreInfoToggle}>More Info
           {this.state.moreInfoToggle
-          ? <a>^</a>
-          : <a>V</a>
+          ? <ArrowUp />
+          : <ArrowDown />
           }
         </div>
         {moreInfo}
