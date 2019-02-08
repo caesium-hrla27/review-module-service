@@ -10,7 +10,7 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 ### Front-end TODO
 
-- [ ] Create drop down menu
+- [x] Create drop down menu
   - [x] Create static "Free Shipping & Returns" menu
     - [x] Dynamically hide and show texts
   - [ ] Create dynamically rendering "Reviews" menu
@@ -22,7 +22,7 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 ### Back-end TODO
 
 - [ ] Learn how to use PostgreSQL
-- [ ] Implement the database schema
+- [x] Implement the database schema
 - [ ] Generate random review data
   - [ ] Use sentencer
 - [ ] Refactor server for interaction with database
