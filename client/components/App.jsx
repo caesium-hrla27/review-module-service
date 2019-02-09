@@ -77,6 +77,7 @@ class App extends React.Component {
           }
         </div>
         {shippingInfo}
+        <br />
         <div onClick={this.handleReviewsToggle}>Reviews
           <span>
           {this.state.reviewsToggle
@@ -86,6 +87,7 @@ class App extends React.Component {
           </span>
         </div>
         {reviews}
+        <br />
         <div onClick={this.handleMoreInfoToggle}>More Info
           {this.state.moreInfoToggle
           ? <ArrowUp />
@@ -93,6 +95,7 @@ class App extends React.Component {
           }
         </div>
         {moreInfo}
+        <br/>
       </div>
     )
   }
