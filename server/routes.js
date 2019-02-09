@@ -2,11 +2,11 @@ const router = require('express').Router();
 const controller = require('./controller.js')
 
 router
-  .route('/review/preview:id')
+  .route('/review/preview')
   .get(controller.getPreview)
 
 router
-  .route('/review/fullview:id')
+  .route('/review/fullview')
   .get(controller.getFullview)
 
 router
