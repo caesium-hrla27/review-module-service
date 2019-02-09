@@ -1,3 +1,5 @@
+const dbHelper = require('../database/dbHelper.js')
+
 module.exports = {
   getPreview: (req, res) => {
 
