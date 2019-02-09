@@ -24,4 +24,4 @@ let req = {
   }
 }
 
-db.saveDummyData(req);
+// db.saveDummyData(req);
