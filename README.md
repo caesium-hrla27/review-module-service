@@ -21,8 +21,9 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 ### Back-end TODO
 
-- [ ] Learn how to use PostgreSQL
+- [x] Learn how to use PostgreSQL
 - [x] Implement the database schema
 - [ ] Generate random review data
+  - [x] Generate initial dummy data
   - [ ] Use sentencer
 - [ ] Refactor server for interaction with database
