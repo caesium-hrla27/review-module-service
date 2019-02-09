@@ -2,6 +2,7 @@ const express = require('express');
 const PORT = 3000;
 const path = require('path');
 const router = require('./routes.js')
+const data = require('../database/dataGenerator.js')
 
 const app = express();
 
