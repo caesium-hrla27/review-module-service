@@ -2,6 +2,10 @@ const router = require('express').Router();
 const controller = require('./controller.js')
 
 router
+  .route('/review/count/:id')
+  .get(controller.getCount)
+  
+router
   .route('/review/preview')
   .get(controller.getPreview)
 
