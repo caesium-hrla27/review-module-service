@@ -60,5 +60,12 @@ module.exports = {
       },
       order:[['createdAt', 'DESC']]
     })
+  },
+  getCount: (reqProductId) => {
+    return Review.count({
+      where: {
+        productId: reqProductId
+      }
+    })
   }
 }
