@@ -15,7 +15,7 @@ class App extends React.Component {
       shippingInfoToggle: false,
       reviewsToggle: false,
       moreInfoToggle: false,
-      count: 0
+      count: 0,
     };
 
     this.handleShippingClick = this.handleShippingClick.bind(this);
@@ -60,9 +60,8 @@ class App extends React.Component {
     axios
       .get(`/side-bar/review/count/${id}`, { params: { productId: id } })
       .then(c => {
-        console.log(c);
         this.setState({
-          count: c.data[0]
+          count: c.data
         });
       })
       .catch(err => {
@@ -74,6 +73,7 @@ class App extends React.Component {
     let shippingInfo;
     let reviews;
     let moreInfo;
+    let reviewNumb = this.state.count;
 
     if (this.state.shippingInfoToggle) {
       shippingInfo = (
@@ -96,7 +96,7 @@ class App extends React.Component {
         {shippingInfo}
         <br />
         <div onClick={this.handleReviewsToggle}>
-          Reviews ({this.state.count})
+          Reviews ({reviewNumb})
           <span>{this.state.reviewsToggle ? <ArrowUp /> : <ArrowDown />}</span>
         </div>
         {reviews}
