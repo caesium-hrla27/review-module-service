@@ -9,8 +9,6 @@ class Reviews extends React.Component {
       productId: 'M1',
       previews: [],
     };
-
-    this.fetchPreviews = this.fetchPreviews.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +23,6 @@ class Reviews extends React.Component {
         },
       })
       .then((response) => {
-        console.log(response);
         this.setState({
           previews: response.data,
         });
