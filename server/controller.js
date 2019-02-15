@@ -2,13 +2,14 @@ const dbHelper = require('../database/dbHelper.js')
 
 module.exports = {
   getCount: (req, res) => {
-    var id = req.query.productId;
+    var id = req.params.id;
     dbHelper.getCount(id)
       .then((count) => {
-        res.status(200).send(count);
+        res.status(200).json(count);
       })
       .catch((err) => {
         console.error(err);
+        res.sendStatus(404);
       })
   },
   getPreview: (req, res) => {
@@ -19,6 +20,7 @@ module.exports = {
       })
       .catch((err) => {
         console.error(err);
+        res.sendStatus(404);
       })
   },
   getFullview: (req, res) => {
