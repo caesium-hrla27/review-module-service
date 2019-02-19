@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('./index.js');
 
-const { Product, Review } = require('./models.js')
+const { Product, Review } = require('./models.js');
 
 module.exports = {
   saveDummyData: (req) => {
@@ -26,13 +26,13 @@ module.exports = {
           comment: req.comment,
           title: req.title,
           response: req.response,
-          pre_launch: req.pre_launch
-        }]
+          pre_launch: req.pre_launch,
+        }],
       }, {
         include: [{
-          association: Product.Reviews
-        }]
-    }))
+          association: Product.Reviews,
+        }],
+      }));
   },
   seedDummy: (req) => {
     return sequelize.sync()
@@ -49,23 +49,23 @@ module.exports = {
         title: req.title,
         response: req.response,
         pre_launch: req.pre_launch,
-        productId: req.productId
-      }))
+        productId: req.productId,
+      }));
   },
   getPreview: (reqProductId) => {
     return Review.findAll({
       limit: 3,
       where: {
-        productId: reqProductId
+        productId: reqProductId,
       },
-      order:[['createdAt', 'DESC']]
-    })
+      order: [['createdAt', 'DESC']],
+    });
   },
   getCount: (reqProductId) => {
     return Review.count({
       where: {
-        productId: reqProductId
-      }
-    })
-  }
-}
+        productId: reqProductId,
+      },
+    });
+  },
+};
