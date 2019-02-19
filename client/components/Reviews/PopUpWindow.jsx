@@ -1,6 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
+const PopUpWrapper = styled.div`
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 1;
+`
 class PopUpWindow extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +34,9 @@ class PopUpWindow extends React.Component {
 
   render() {
     return (
-      <div>
-        Hello!
-      </div>
+      <PopUpWrapper>
+        Heeeeeeeeellllllllloooooooooo!
+      </PopUpWrapper>
     );
   }
 }

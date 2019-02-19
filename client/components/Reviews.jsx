@@ -1,6 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import Previews from './Reviews/Previews.jsx';
+
+const ExpandReview = styled.div`
+  transition: 250ms height ease-in;
+  height: ${props => props.toggle ? 'auto' : '0'}
+  width: 369px;
+`
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -9,8 +16,6 @@ class Reviews extends React.Component {
       productId: 'M1',
       previews: [],
     };
-
-    this.fetchPreviews = this.fetchPreviews.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +30,6 @@ class Reviews extends React.Component {
         },
       })
       .then((response) => {
-        console.log(response);
         this.setState({
           previews: response.data,
         });
@@ -37,9 +41,9 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div>
+      <ExpandReview toggle={this.props.reviewsToggle}>
         <Previews previews={this.state.previews} /> 
-      </div>
+      </ExpandReview>
     );
   }
 }
