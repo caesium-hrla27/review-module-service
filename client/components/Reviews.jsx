@@ -1,51 +1,64 @@
 import React from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
-import Previews from './Reviews/Previews.jsx';
+import PreviewEntry from './Reviews/PreviewEntry.jsx';
+import PopUpWindow from './Reviews/PopUpWindow.jsx';
 
 const ExpandReview = styled.div`
-  transition: 250ms height ease-in;
-  height: ${props => props.toggle ? 'auto' : '0'}
-  width: 369px;
+height: ${props => props.toggle ? '100%' : '0'};
+width: 369px;
+`
+// transition: 250ms height ease-in;
+
+const PreviewWrapper = styled.div`
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 5px;
 `
 
-class Reviews extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      productId: 'M1',
-      previews: [],
-    };
+const MoreReviews = styled.button`
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 4px;
+  border-bottom: 1px solid black;
+  border-radius: unset;
+  font-size: 14px;
+  text-align: center;
+`
+const PopUp = styled.div`
+  width: 100%;
+  height: ${props => props.toggle ? '100%' : '0'};
+  overflow: hidden;
+  `
+  // transition: 250ms height ease-in;
+
+const Reviews = (props) => {
+  const { moreReviewsToggle } = props;
+  let moreReviewsButton;
+  if (props.count > 3) {
+    moreReviewsButton = <MoreReviews onClick={props.handleMoreReviewsToggle}>More Reviews</MoreReviews>
   }
 
-  componentDidMount() {
-    this.fetchPreviews();
-  }
-
-  fetchPreviews() {
-    axios
-      .get('/side-bar/review/preview', {
-        params: {
-          productId: this.state.productId,
-        },
-      })
-      .then((response) => {
-        this.setState({
-          previews: response.data,
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
-  render() {
-    return (
-      <ExpandReview toggle={this.props.reviewsToggle}>
-        <Previews previews={this.state.previews} /> 
-      </ExpandReview>
-    );
-  }
+  return (
+    <ExpandReview toggle={props.reviewsToggle}>
+      <PreviewWrapper>
+        {props.reviews.map((preview, index) => {
+          if (index < 3) {
+            return <PreviewEntry preview={preview} key={index} />
+          }
+        })}
+        {moreReviewsButton}
+        <PopUp toggle={moreReviewsToggle}>
+          <PopUpWindow 
+          toggleOn={moreReviewsToggle} 
+          handleExit={props.handleMoreReviewsToggle} 
+          reviews={props.reviews} 
+          fetchReviews={props.fetchReviews}
+          />
+        </PopUp>
+      </PreviewWrapper>
+    </ExpandReview>
+  );
 }
 
 export default Reviews;
