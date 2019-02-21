@@ -27,50 +27,49 @@ const Spacer = styled.p`
   margin: 0;
 `
 
-class PreviewEntry extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rating: 0,
-    };
-  }
+const PreviewEntry = (props) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     rating: 0,
+  //   };
+  // }
 
-  render() {
+  // render() {
     const {
       title, comment, rate, size, comfort,
       durability, username, location, upvote,
       downvote, response, pre_launch, createdAt,
-    } = this.props.preview;
+    } = props.preview;
 
     const dateCreated = new Date(createdAt);
     const dateArr = dateCreated.toString().split(' ');
     const presentDate = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
 
 
-    return (
-      <PreviewEntryWrapper>
-        <Title>
-          {title}
-        </Title>
-        <RateWrapper>
-          <StarRatings
-            rating={rate}
-            starRatedColor="black"
-            numberOfStars={5}
-            starDimension="16px"
-            starSpacing="3px"
-            name="rating"
-          />
-          <UserNameWrapper>
-            <UserName>{username}{' '}-{' '}{presentDate}</UserName>
-          </UserNameWrapper>
-        </RateWrapper>
-        <Spacer />
-        {comment}
-      </PreviewEntryWrapper>
+  return (
+    <PreviewEntryWrapper>
+      <Title>
+        {title}
+      </Title>
+      <RateWrapper>
+        <StarRatings
+          rating={rate}
+          starRatedColor="black"
+          numberOfStars={5}
+          starDimension="16px"
+          starSpacing="3px"
+          name="rating"
+        />
+        <UserNameWrapper>
+          <UserName>{username}{' '}-{' '}{presentDate}</UserName>
+        </UserNameWrapper>
+      </RateWrapper>
+      <Spacer />
+      {comment}
+    </PreviewEntryWrapper>
 
-    );
-  }
+  );
 }
 
 export default PreviewEntry;
