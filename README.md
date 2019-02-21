@@ -4,7 +4,7 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 # How to start this app
 
-First, make sure postgreSQL is installed in your computer. If you are using macbook pro, postgreSQL app from App store will be useful.
+First, make sure postgreSQL is installed in your computer. If you are using macbook pro, postgreSQL app from the link provided below will be useful.
 
 Detailed instructions here: 
 - For mac users:
