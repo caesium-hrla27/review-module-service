@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import StarRatings from 'react-star-ratings';
+import axios from 'axios';
+
 import ShippingInfo from "./ShippingInfo.jsx";
 import Reviews from "./Reviews.jsx";
 import MoreInfo from "./MoreInfo.jsx";
 import ArrowUp from "./assets/ArrowUp.jsx";
 import ArrowDown from "./assets/ArrowDown.jsx";
-import axios from "axios";
-import StarRatings from "react-star-ratings";
 
 const SideMenuBarButton = styled.button`
   outline: none;
@@ -65,19 +66,52 @@ const ArrowSpan = styled.span`
 `
 var RenderMenu = styled.div`
   padding: 0;
-  -webkit-transition: 250ms height ease-in;
+  transition: 250ms height ease-in;
   padding-bottom: ${props => props.toggle ? '32px' : '0'};
-  height: ${props => props.toggle ? 'auto' : '0'};
+  height: ${props => props.toggle ? '100%' : '0'};
   overflow: hidden;
 `
-const RenderShippingInfo = styled.div`
-  width: 369px;
+const NeedHelp = styled.div`
+  vertical-align: middle;
+  position: relative;
+  top: 3px;
+  font-size: 12px;
+  font-weight: bold;
 `
-const RenderReviews = styled.div`
-  width: 369px;
+const ChatNow = styled.button`
+  height: 14px;
+  outline: none;
+  border-radius: 0px;
+  position: relative;
+  display: flex;
+  background: transparent;
+  padding: 0;
+  margin-right: 12px;
+  margin-left: 2px;
+  top: 3px;
+  border: none;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  font-size: 12px;
+  text-align: center;
+  `
+  const ChatModule = styled.div`
+  display: flex;
+  padding-bottom: 4px;
+  padding-top: 28px;
+  box-shadow: inset 0 1px 0 0 #e5e5e5;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  width: 400px;
 `
-const RenderMoreInfo = styled.div`
-  width: 369px;
+const ImageWrapper = styled.img`
+  vertical-align: middle;
+  height: 24px;
+  margin-right: 12px;
 `
 
 class App extends React.Component {
@@ -87,19 +121,56 @@ class App extends React.Component {
       productId: "M1",
       shippingInfoToggle: false,
       reviewsToggle: false,
+      moreReviewsToggle: false,
       moreInfoToggle: false,
+      reviews: [],
       count: 0,
     };
 
     this.handleShippingClick = this.handleShippingClick.bind(this);
     this.handleReviewsToggle = this.handleReviewsToggle.bind(this);
     this.handleMoreInfoToggle = this.handleMoreInfoToggle.bind(this);
+    this.handleMoreReviewsToggle = this.handleMoreReviewsToggle.bind(this);
+    this.fetchPreviews = this.fetchPreviews.bind(this);
+    this.fetchReviews = this.fetchReviews.bind(this);
     this.fetchCount = this.fetchCount.bind(this);
   }
 
   componentDidMount() {
     this.fetchCount();
+    this.fetchPreviews();
   }
+
+  fetchPreviews() {
+    axios
+      .get('/side-bar/review/preview', {
+        params: {
+          productId: this.state.productId,
+        },
+      })
+      .then((response) => {
+        this.setState({
+          reviews: [...response.data],
+          count: response.data.length,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  fetchReviews() {
+    axios
+      .get('/side-bar/review/fullview')
+      .then((response) => {
+        this.setState({
+          reviews: [...this.state.reviews, ...response.data],
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   handleShippingClick(e) {
     e.preventDefault();
@@ -108,7 +179,7 @@ class App extends React.Component {
       moreInfoToggle: false,
       reviewsToggle: false,
     });
-  }
+  };
 
   handleReviewsToggle(e) {
     e.preventDefault();
@@ -117,7 +188,14 @@ class App extends React.Component {
       shippingInfoToggle: false,
       moreInfoToggle: false,
     });
-  }
+  };
+
+  handleMoreReviewsToggle(e) {
+    e.preventDefault();
+    this.setState({
+      moreReviewsToggle: !this.state.moreReviewsToggle,
+    });
+  };
 
   handleMoreInfoToggle(e) {
     e.preventDefault();
@@ -126,7 +204,7 @@ class App extends React.Component {
       shippingInfoToggle: false,
       reviewsToggle: false,
     });
-  }
+  };
 
   fetchCount() {
     var id = this.state.productId;
@@ -180,7 +258,14 @@ class App extends React.Component {
           </ArrowHolder>
         </SideMenuBarButton>
         <RenderMenu aria-hidden={!reviewsToggle} toggle={reviewsToggle}>
-          <Reviews reviewsToggle={reviewsToggle}/>
+          <Reviews 
+          reviewsToggle={reviewsToggle}
+          reviews={this.state.reviews}
+          count={this.state.count}
+          fetchReviews={this.fetchReviews}
+          moreReviewsToggle={this.state.moreReviewsToggle}
+          handleMoreReviewsToggle={this.handleMoreReviewsToggle}
+          />
         </RenderMenu>
 
         <SideMenuBarButton onClick={this.handleMoreInfoToggle}>
@@ -194,6 +279,14 @@ class App extends React.Component {
         <RenderMenu aria-hidden={!moreInfoToggle} toggle={moreInfoToggle}>
           <MoreInfo />
         </RenderMenu>
+        <ChatModule>
+          <ImageWrapper 
+            src={'https://s3-us-west-1.amazonaws.com/cs-nike-fec/pdp-chat-invite-desktop.png'} 
+            alt="Chat icon"
+          />
+          <NeedHelp>Need Help?</NeedHelp>
+          <ChatNow>Chat Now</ChatNow>
+        </ChatModule>
       </div>
     );
   }
