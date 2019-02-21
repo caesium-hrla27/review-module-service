@@ -54,7 +54,7 @@ module.exports = {
   },
   getPreview: (reqProductId) => {
     return Review.findAll({
-      limit: 3,
+      limit: 10,
       where: {
         productId: reqProductId,
       },
@@ -68,4 +68,28 @@ module.exports = {
       },
     });
   },
+  getFullReviews: (reqProductId) => {
+    return Review.findAll({
+      limit: 3,
+      where: {
+        productId: reqProductId,
+      },
+      // include: [{
+      //   model: Product,
+      //   required: false,
+      //   as: 'productID',
+      //   attributes: ['ShoeID'],
+      // }],
+      order: [[ 'createdAt', 'DESC' ]],
+    })
+    // .then((err, reviews) => {
+    //   if (err) {
+    //     console.error(err);
+    //   } else {
+    //     console.log(reviews);
+    //   }
+    // })
+  },
 };
+
+module.exports.getFullReviews('M1');
