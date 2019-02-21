@@ -21,10 +21,18 @@ module.exports = {
       .catch((err) => {
         console.error(err);
         res.sendStatus(404);
-      })
+      });
   },
   getFullview: (req, res) => {
-
+    var id = req.query.productId;
+    dbHelper.getFullReviews(id)
+      .then((reviews) => {
+        res.status(200).send(reviews);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(400);
+      });
   },
   getInfo: (req, res) => {
     
