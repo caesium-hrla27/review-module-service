@@ -4,7 +4,7 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 # How to start this app
 
-First, make sure postgreSQL is installed in your computer. If you are using macbook pro, postgreSQL app from App store will be useful.
+First, make sure postgreSQL is installed in your computer. If you are using macbook pro, postgreSQL app from the link provided below will be useful.
 
 Detailed instructions here: 
 - For mac users:
@@ -15,13 +15,13 @@ Then, start the postgreSQL app,
 1. **npm install**
 2. **npm start**
 
-On another terminal, put:
+On another terminal, start postgresql by entering:
 
-**createdb -T template0 review_module** 
+**psql**
 
-from the root directory. Then, type in:
+Once you are in the postgresql terminal, enter the following command:
 
-**psql review_module < ./reviewsqlfile.sql** 
+**CREATE DATABASE review_module** 
 
 to the terminal window. Now you should have seeded the data!
 
