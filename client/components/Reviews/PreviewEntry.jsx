@@ -28,14 +28,7 @@ const Spacer = styled.p`
 `
 
 const PreviewEntry = (props) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     rating: 0,
-  //   };
-  // }
 
-  // render() {
     const {
       title, comment, rate, size, comfort,
       durability, username, location, upvote,

@@ -57,6 +57,11 @@ const ExitButton = styled.button`
 // padding: 16px 7px 2px 16px;
 
 const ReviewsWrapper = styled.div`
+max-width: 1440px;
+margin: 0 auto;
+padding: 0 24px;
+font-family: 'Helvetica Neue',Helvetica,Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
   overflow-y: scroll;
   scroll-behavior: smooth;
   flex: 1 1 auto;
@@ -88,7 +93,8 @@ const ReviewsSummary = styled.div`
   padding: 55px 0 0;
   margin: 0 auto;
   max-width: 1000px;
-  margin: 77px;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 5;
   position: relative;
 `
@@ -114,18 +120,6 @@ const AverageRatingsWrapper = styled.div`
 `
 
 const PopUpWindow = (props) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     Reviews: [...this.props.reviews],
-  //   };
-  // }
-
-  // componentWillReceiveProps() {
-  //   setTimeout(() => {
-  //     this.props.fetchReviews();
-  //   }, 0);
-  // }
 
   return (
     <PopUpWrapper toggle={props.toggleOn}>
@@ -138,11 +132,8 @@ const PopUpWindow = (props) => {
         </div>
       </NavBar>
       <ReviewsWrapper>
-        reviews wrapper
         <ReviewsInnerWrapper>
-          inner wrapper
           <ReviewsSection>
-            section
             <ReviewsSummary>
 
               <StarRating

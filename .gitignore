@@ -59,3 +59,11 @@ typings/
 
 # next.js build output
 .next
+
+# .DS_Store
+client/.DS_Store
+client/components/.DS_Store
+
+# Ignore example files
+client/components/example/
+
