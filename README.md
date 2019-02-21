@@ -15,13 +15,13 @@ Then, start the postgreSQL app,
 1. **npm install**
 2. **npm start**
 
-On another terminal, put:
+On another terminal, start postgresql by entering:
 
-**createdb -T template0 review_module** 
+**psql**
 
-from the root directory. Then, type in:
+Once you are in the postgresql terminal, enter the following command:
 
-**psql review_module < ./reviewsqlfile.sql** 
+**CREATE DATABASE review_module** 
 
 to the terminal window. Now you should have seeded the data!
 
