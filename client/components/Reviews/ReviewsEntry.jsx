@@ -8,31 +8,73 @@ const ReviewsEntryBlockWrapper = styled.div`
   padding-top: 79px;
 `
 const RatingSubBlockWrapper = styled.div`
-  display: flex;
+  display: block;
   flex-direction: column;
-  width: 100%;
+  width: 30%;
   height: 77px;
+  padding-right: 60px;
 `
 const StarWrapper = styled.div`
+  position: relative;
+  margin-bottom: 18px;
+`
+
+const RateBarBlockWrapper = styled.div`
+  margin-bottom: 18px;
+  font-size: 11px;
+  font-weight: bold;
   display: block;
-  position: relative;
 `
 
-const SizeWrapper = styled.div`
-  position: relative;
+const BarTitleWrapper = styled.div`
+  margin-bottom: 7px;
+  color: #111;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 4px;
+  display: block;
 `
 
-const ComfortWrapper = styled.div`
-  position: relative;
+const Bar = styled.div`
+  margin-bottom: 15px;
+  background: #EBEBEB;
+  width: 100%;
+  border-radius: 10px;
+  height: 4px;
 `
 
-const DurabilityWrapper = styled.div`
+const Ball = styled.div`
+  margin-left: calc(${props => props.ball} - 5px);
+  background: #111;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
   position: relative;
+  top: -2px;
+`
+
+const BarDescriptionWrapper = styled.div`
+  justify-content: space-around;
+
+`
+
+const Description = styled.div`
+  width: 48%;
+  font-size: 12px;
+  font-weight: normal;
+  white-space: nowrap;
+  color: #6D6D6D;
+  margin-top: 7px;
+  position: relative;
+  top: -15pdx;
+
 `
 
 const ReviewDetailSubBlockWrapper = styled.div`
+display: block;
 position: relative;
 flex-direction: column;
+right: 100px;
 `
 
 const TitleWrapper = styled.div`
@@ -55,9 +97,7 @@ const ReviewsEntry = (props) => {
   console.log('reviews entry')
   return (
     <ReviewsEntryBlockWrapper>
-      reviews entry block
       <RatingSubBlockWrapper>
-        rating sub block
         <StarWrapper>
           <StarRating
             rating={props.rate}
@@ -68,18 +108,33 @@ const ReviewsEntry = (props) => {
             name="Rating"
           />
         </StarWrapper>
-        <SizeWrapper>
-          Placeholder size
-        </SizeWrapper>
-        <ComfortWrapper>
-          PlaceHolder comfort
-        </ComfortWrapper>
-        <DurabilityWrapper>
-          PlaceHolder durability
-        </DurabilityWrapper>
+        <RateBarBlockWrapper>
+          <BarTitleWrapper>
+            Size
+          </BarTitleWrapper>
+          <Bar>
+            <Ball ball={'30%'} />
+          </Bar>
+          <BarDescriptionWrapper></BarDescriptionWrapper>
+        </RateBarBlockWrapper>
+        <RateBarBlockWrapper>
+          <BarTitleWrapper>
+            Comfort
+          </BarTitleWrapper>
+          <Bar>
+            <Ball ball={'30%'} />
+          </Bar>
+        </RateBarBlockWrapper>
+        <RateBarBlockWrapper>
+          <BarTitleWrapper>
+            Durability
+          </BarTitleWrapper>
+          <Bar>
+            <Ball ball={'50%'}/>
+          </Bar>
+        </RateBarBlockWrapper>
       </RatingSubBlockWrapper>
       <ReviewDetailSubBlockWrapper>
-        review detail sub block
         <TitleWrapper>
           Title
         </TitleWrapper>
