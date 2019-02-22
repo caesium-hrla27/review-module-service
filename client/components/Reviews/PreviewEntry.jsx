@@ -55,7 +55,7 @@ const PreviewEntry = (props) => {
           name="rating"
         />
         <UserNameWrapper>
-          <UserName>{username}{' '}-{' '}{presentDate}</UserName>
+          <UserName>{username + ' - ' + presentDate}</UserName>
         </UserNameWrapper>
       </RateWrapper>
       <Spacer />
