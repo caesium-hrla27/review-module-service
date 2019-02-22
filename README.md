@@ -12,13 +12,13 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 > 
 > Macbook has a postgreSQL app that would make database management easier. Please check the following link: <https://postgresapp.com/>
 >
-> **When setting up the postgreSQL, make sure you reload the terminal after everything is configured**
+> **When setting up the postgreSQL, make sure you reload the terminal after everything is configured.**
 
 Once you are in the postgreSQL terminal, enter the following command:
 
 `CREATE DATABASE review_module;`
 
-Once your database is created, follow the following commands from the root of this repo:
+Once your database is created, follow the following commands from the root of this repo to install dependencies, seed mock data, and start the server:
 
 1. `npm install`
 
