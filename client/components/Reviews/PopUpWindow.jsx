@@ -125,7 +125,7 @@ const PopUpWindow = (props) => {
     <PopUpWrapper toggle={props.toggleOn}>
       <NavBar>
         <div>
-          Please work
+          <img src={props.productDetail.product_img} alt={props.productDetail.product_name} />
         </div>
         <div>
         <ExitButton onClick={props.handleExit}><span><ExitCross /></span></ExitButton>
@@ -146,21 +146,7 @@ const PopUpWindow = (props) => {
               />
               {props.reviews.map((review) => {
                 return (
-                <ReviewsEntry
-                rate={review.rate}
-                comfort={review.comfort}
-                durability={review.durability}
-                size={review.size}
-                title={review.title}
-                comment={review.comment}
-                username={review.username}
-                createdAt={review.createdAt}
-                location={review.location}
-                upvote={review.upvote}
-                downvote={review.downvote}
-                response={review.response}
-                pre_launch={review.pre_launch}
-                />
+                <ReviewsEntry review={review} />
                 )
               })}
             </ReviewsSummary>
