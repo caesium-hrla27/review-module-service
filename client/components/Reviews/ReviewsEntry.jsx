@@ -54,8 +54,9 @@ const Ball = styled.div`
 `
 
 const BarDescriptionWrapper = styled.div`
-  justify-content: space-around;
-
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
 `
 
 const Description = styled.div`
@@ -71,18 +72,46 @@ const Description = styled.div`
 `
 
 const ReviewTitleCommentWrapper = styled.div`
-display: block;
-position: relative;
-flex-direction: column;
-left: 70%;
+  display: block;
+  position: relative;
+  flex-direction: column;
+  left: 70%;
 `
 
 const TitleWrapper = styled.div`
-
+  font-size: 14px;
+  line-height: 1.6;
+  color: #111;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
 `
 
 const CommentWrapper = styled.div`
+  font-size: 14px;
+  line-height: 1.7;
+  color: #111;
+  margin-bottom: 0;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+`
 
+const UserInfoSubBlockWrapper = styled.div`
+  width: 70%;
+  float: right;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
 `
 
 const UserInfoWrapper = styled.div`
@@ -99,6 +128,10 @@ const ReviewsEntry = (props) => {
     durability, username, location, upvote,
     downvote, response, pre_launch, createdAt,
   } = props.review;
+
+  const dateCreated = new Date(createdAt);
+  const dateArr = dateCreated.toString().split(' ');
+  const presentDate = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
 
   return (
     <ReviewsEntryBlockWrapper>
@@ -120,7 +153,10 @@ const ReviewsEntry = (props) => {
           <Bar>
             <Ball ball={'30%'} />
           </Bar>
-          <BarDescriptionWrapper></BarDescriptionWrapper>
+          <BarDescriptionWrapper>
+            <div>Runs small</div>
+            <div>Runs big</div>
+          </BarDescriptionWrapper>
         </RateBarBlockWrapper>
         <RateBarBlockWrapper>
           <BarTitleWrapper>
@@ -129,6 +165,10 @@ const ReviewsEntry = (props) => {
           <Bar>
             <Ball ball={'30%'} />
           </Bar>
+          <BarDescriptionWrapper>
+            <div>Uncomfortable</div>
+            <div>Very Comfortable</div>
+          </BarDescriptionWrapper>
         </RateBarBlockWrapper>
         <RateBarBlockWrapper>
           <BarTitleWrapper>
@@ -137,22 +177,28 @@ const ReviewsEntry = (props) => {
           <Bar>
             <Ball ball={'50%'}/>
           </Bar>
+          <BarDescriptionWrapper>
+            <div>Not Durable</div>
+            <div>Very Durable</div>
+          </BarDescriptionWrapper>
         </RateBarBlockWrapper>
       </RatingSubBlockWrapper>
       <ReviewTitleCommentWrapper>
         <TitleWrapper>
-          Title
+          {title}
         </TitleWrapper>
         <CommentWrapper>
-          Comment
+          {comment}
         </CommentWrapper>
+      </ReviewTitleCommentWrapper>
+      <UserInfoSubBlockWrapper>
         <UserInfoWrapper>
-          UserInfo
+          {presentDate + ' - ' + username + ' - ' + location}
         </UserInfoWrapper>
         <VoteWrapper>
           Vote
         </VoteWrapper>
-      </ReviewTitleCommentWrapper>
+      </UserInfoSubBlockWrapper>
     </ReviewsEntryBlockWrapper>
   )
 }
