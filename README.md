@@ -18,7 +18,7 @@ Once you are in the postgreSQL terminal, enter the following command:
 
 `CREATE DATABASE review_module;`
 
-Once your database is set up, follow the following commands from the root of this repo:
+Once your database is created, follow the following commands from the root of this repo:
 
 1. `npm install`
 
