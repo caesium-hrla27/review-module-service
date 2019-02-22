@@ -36,8 +36,6 @@ CREATE TABLE public.products (
 );
 
 
-ALTER TABLE public.products OWNER TO kooma;
-
 --
 -- Name: reviews; Type: TABLE; Schema: public; Owner: kooma
 --
@@ -62,8 +60,6 @@ CREATE TABLE public.reviews (
 );
 
 
-ALTER TABLE public.reviews OWNER TO kooma;
-
 --
 -- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: kooma
 --
@@ -76,8 +72,6 @@ CREATE SEQUENCE public.reviews_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
-ALTER TABLE public.reviews_id_seq OWNER TO kooma;
 
 --
 -- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kooma
