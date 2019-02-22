@@ -4,15 +4,15 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 # How to start this app
 
-First, make sure postgreSQL is installed in your computer. If you are using macbook pro, postgreSQL app from the link provided below will be useful.
+> First, make sure postgreSQL is installed in your computer. **If your postgreSQL is already set up, skip this block quotes.** If you have not installed postgreSQL yet and if you are a mac user, postgreSQL app from the link provided below will be helpful. 
+> 
+> Detailed instructions here: <https://www.postgresql.org/docs/11/tutorial-install.html>
+> 
+> If this is your first time installing postgreSQL, please refer to the following link: <https://www.postgresql.org/docs/11/installation.html>
+> 
+> Macbook has a postgreSQL app that would make database management easier. Please check the following link: <https://postgresapp.com/>
 
-Detailed instructions here: <https://www.postgresql.org/docs/11/tutorial-install.html>
-
-If this is your first time installing postgreSQL, please refer to the following link: <https://www.postgresql.org/docs/11/installation.html>
-
-Macbook has a postgreSQL app that would make database management easier. Please check the following link: <https://postgresapp.com/>
-
-*When setting up the postgreSQL, make sure you reload the terminal once everything is configured*
+> *When setting up the postgreSQL, make sure you reload the terminal after everything is configured*
 
 Once you are in the postgreSQL terminal, enter the following command:
 
@@ -28,7 +28,7 @@ Once your database is set up, follow the following commands from the root of thi
 
 Now the app should be rendering in port 3003 from the localhost.
 
-# For my personal todos -- You may disregard from here on.
+# For my personal todos -- Please disregard from here on.
 
 ## TODO:
 
@@ -38,20 +38,24 @@ Now the app should be rendering in port 3003 from the localhost.
 
 ### Front-end TODO
 
-- [x] Create drop down menu
-  - [x] Create static "Free Shipping & Returns" menu
-    - [x] Dynamically hide and show texts
-  - [x] Create dynamically rendering "Reviews" menu
-    - [x] Create "More Reviews" button for pop up window
-  - [ ] Create dynamically rendering "More Info" menu
-    - [ ] Request review data to the server
-- [x] Create review page in the pop up window
+| Checklist | Tasks |
+| :-------: | ----- |
+| [x] | Create drop down menu |
+| [x] | Create static "Free Shipping & Returns" menu |
+| [x] | Dynamically hide and show texts |
+| [x] | Create dynamically rendering "Reviews" menu |
+| [x] | Create "More Reviews" button for pop up window |
+| [x] | Request review data to the server |
+| [x] | Create review page in the pop up window |
+| [ ] | Create dynamically rendering "More Info" menu |
 
 ### Back-end TODO
 
-- [x] Learn how to use PostgreSQL
-- [x] Implement the database schema
-- [ ] Generate random review data
-  - [x] Generate initial dummy data
-  - [ ] Use sentencer
-- [ ] Refactor server for interaction with database
+| Checklist | Tasks |
+| :-------: | ----- |
+| [x] | Learn how to use PostgreSQL |
+| [x] | Implement the database schema |
+| [ ] | Generate random review data |
+| [x] | Generate initial dummy data |
+| [ ] | Use sentencer |
+| [ ] | Refactor server for interaction with database |
