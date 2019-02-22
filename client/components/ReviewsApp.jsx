@@ -179,7 +179,7 @@ class ReviewsApp extends React.Component {
     axios
       .get(`/api/product-detail/${id}`, {
         params: {
-          productId: id,
+          id: id,
         },
       })
       .then((response) => {
@@ -192,6 +192,19 @@ class ReviewsApp extends React.Component {
       });
   };
 
+  fetchCount() {
+    var id = this.state.productId;
+    axios
+      .get(`/api/review/count/${id}`, { params: { productId: id } })
+      .then(c => {
+        this.setState({
+          count: c.data
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
   handleShippingClick(e) {
     e.preventDefault();
     this.setState({
@@ -226,19 +239,6 @@ class ReviewsApp extends React.Component {
     });
   };
 
-  fetchCount() {
-    var id = this.state.productId;
-    axios
-      .get(`/api/review/count/${id}`, { params: { productId: id } })
-      .then(c => {
-        this.setState({
-          count: c.data
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
 
   render() {
     const { shippingInfoToggle, reviewsToggle, moreInfoToggle } = this.state;

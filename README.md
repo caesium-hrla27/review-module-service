@@ -28,7 +28,7 @@ Once your database is created, follow the following commands from the root of th
 
 Now the app should be rendering in port `3003` from the `localhost`.
 
-## TODOs -- Please disregard from here on:
+## TODOs -- Please disregard from here on: 
 
 ### Initialization
 
@@ -45,6 +45,7 @@ Now the app should be rendering in port `3003` from the `localhost`.
 | [x] | Create "More Reviews" button for pop up window |
 | [x] | Request review data to the server |
 | [x] | Create review page in the pop up window |
+| [x] | Create nav bar in the pop up window |
 | [ ] | Create dynamically rendering "More Info" menu |
 
 ### Back-end TODO

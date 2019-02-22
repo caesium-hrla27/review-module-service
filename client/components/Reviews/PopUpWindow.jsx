@@ -46,7 +46,7 @@ const ExitButton = styled.button`
   justify-content: flex-end;
   padding: 16px 7px 2px 7px;
   top: 12px;
-  right: 12px;
+  right: 24px;
   position: absolute;
 `
 
@@ -119,17 +119,69 @@ const AverageRatingsWrapper = styled.div`
   flex-direction: row;
 `
 
+const ShoeImgWrapper = styled.div`
+display: flex;
+flex-direction: row;
+`
+
+const ShoeImg = styled.img`
+max-width: 60px;
+max-height: 60px;
+`
+
+const ShoeImgInfo = styled.div`
+width: 100%;
+max-width: calc(100% - 60px);
+padding-left: 12px;
+padding-right: 12px;
+padding-top: 8px;
+display: inline-block;
+flex-direction: column;
+`
+
+const ShoeName = styled.p`
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+line-height: 1.714285714285714;
+margin: 0;
+padding: 0;
+border: 0;
+font: inherit;
+vertical-align: baseline;
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+`
+
+const ShoePrice = styled.div`
+color: #111;
+margin: 0;
+padding: 0;
+border: 0;
+font: inherit;
+vertical-align: baseline;
+display: block;
+text-align: center;
+`
+
 const PopUpWindow = (props) => {
 
   return (
     <PopUpWrapper toggle={props.toggleOn}>
       <NavBar>
-        <div>
-          <img src={props.productDetail.product_img} alt={props.productDetail.product_name} />
-        </div>
-        <div>
+        <ShoeImgWrapper>
+          <ShoeImg src={props.productDetail.product_img} alt={props.productDetail.product_name} />
+          <ShoeImgInfo>
+            <ShoeName>
+              {props.productDetail.product_name}
+            </ShoeName>
+            <ShoePrice>
+              {props.productDetail.price}
+            </ShoePrice>
+          </ShoeImgInfo>
+        </ShoeImgWrapper>
         <ExitButton onClick={props.handleExit}><span><ExitCross /></span></ExitButton>
-        </div>
       </NavBar>
       <ReviewsWrapper>
         <ReviewsInnerWrapper>
