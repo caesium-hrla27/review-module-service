@@ -55,7 +55,7 @@ module.exports = {
   getProductDetail: (reqProductId) => {
     return Product.find({
       where: {
-        productId: reqProductId,
+        id: reqProductId,
       },
     });
   },
