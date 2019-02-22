@@ -26,7 +26,7 @@ Once your database is created, follow the following commands from the root of th
 
 3. `npm start`
 
-Now the app should be rendering in port 3003 from the localhost.
+Now the app should be rendering in port `3003` from the `localhost`.
 
 # For my personal todos -- Please disregard from here on.
 
