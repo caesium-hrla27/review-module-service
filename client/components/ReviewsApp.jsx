@@ -145,7 +145,7 @@ class ReviewsApp extends React.Component {
 
   fetchPreviews() {
     axios
-      .get('/side-bar/review/preview', {
+      .get('/api/review/preview', {
         params: {
           productId: this.state.productId,
         },
@@ -163,7 +163,7 @@ class ReviewsApp extends React.Component {
 
   fetchReviews() {
     axios
-      .get('/side-bar/review/fullview')
+      .get('/api/review/fullview')
       .then((response) => {
         this.setState({
           reviews: [...this.state.reviews, ...response.data],
@@ -177,7 +177,7 @@ class ReviewsApp extends React.Component {
   fetchProductDetail() {
     var id = this.state.productId;
     axios
-      .get(`/side-bar/product-detail/${id}`, {
+      .get(`/api/product-detail/${id}`, {
         params: {
           productId: id,
         },
@@ -229,7 +229,7 @@ class ReviewsApp extends React.Component {
   fetchCount() {
     var id = this.state.productId;
     axios
-      .get(`/side-bar/review/count/${id}`, { params: { productId: id } })
+      .get(`/api/review/count/${id}`, { params: { productId: id } })
       .then(c => {
         this.setState({
           count: c.data

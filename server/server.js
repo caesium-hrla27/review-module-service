@@ -18,6 +18,6 @@ app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '../client/static')));
 
-app.use('/side-bar', router);
+app.use('/api', router);
 
 app.listen(PORT, () => console.log(`Listenting to port: ${PORT}...`));
