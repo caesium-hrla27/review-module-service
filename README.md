@@ -2,7 +2,7 @@
 
 This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage mock-up.
 
-# How to start this app
+## How to start this app
 
 > First, make sure postgreSQL is installed in your computer. *If your postgreSQL is already set up, skip this block quotes.* If you are a mac user and have not yet installed your postgreSQL, try using postgreSQL app from the link provided below. I highly recommend using one.
 > 
@@ -28,9 +28,7 @@ Once your database is created, follow the following commands from the root of th
 
 Now the app should be rendering in port `3003` from the `localhost`.
 
-# For my personal todos -- Please disregard from here on.
-
-## TODO:
+## TODOs -- Please disregard from here on:
 
 ### Initialization
 
