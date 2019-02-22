@@ -4,7 +4,7 @@ This is a workspace to develop reviews module of Caesium-hrla27 Nike webpage moc
 
 # How to start this app
 
-> First, make sure postgreSQL is installed in your computer. *If your postgreSQL is already set up, skip this block quotes.* If you have not installed postgreSQL yet and if you are a mac user, postgreSQL app from the link provided below will be helpful. 
+> First, make sure postgreSQL is installed in your computer. *If your postgreSQL is already set up, skip this block quotes.* If you are a mac user and have not yet installed your postgreSQL, try using postgreSQL app from the link provided below. I highly recommend using one.
 > 
 > Detailed instructions here: <https://www.postgresql.org/docs/11/tutorial-install.html>
 > 
