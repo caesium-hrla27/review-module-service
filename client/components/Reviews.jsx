@@ -54,6 +54,7 @@ const Reviews = (props) => {
           handleExit={props.handleMoreReviewsToggle} 
           reviews={props.reviews} 
           fetchReviews={props.fetchReviews}
+          productDetail={props.productDetail}
           />
         </PopUp>
       </PreviewWrapper>

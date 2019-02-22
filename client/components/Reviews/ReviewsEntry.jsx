@@ -70,11 +70,11 @@ const Description = styled.div`
 
 `
 
-const ReviewDetailSubBlockWrapper = styled.div`
+const ReviewTitleCommentWrapper = styled.div`
 display: block;
 position: relative;
 flex-direction: column;
-right: 100px;
+left: 70%;
 `
 
 const TitleWrapper = styled.div`
@@ -94,13 +94,18 @@ const VoteWrapper = styled.div`
 `
 
 const ReviewsEntry = (props) => {
-  console.log('reviews entry')
+  const {
+    title, comment, rate, size, comfort,
+    durability, username, location, upvote,
+    downvote, response, pre_launch, createdAt,
+  } = props.review;
+
   return (
     <ReviewsEntryBlockWrapper>
       <RatingSubBlockWrapper>
         <StarWrapper>
           <StarRating
-            rating={props.rate}
+            rating={rate}
             starRatedColor="black"
             numberOfStars={5}
             starDimension="18px"
@@ -134,7 +139,7 @@ const ReviewsEntry = (props) => {
           </Bar>
         </RateBarBlockWrapper>
       </RatingSubBlockWrapper>
-      <ReviewDetailSubBlockWrapper>
+      <ReviewTitleCommentWrapper>
         <TitleWrapper>
           Title
         </TitleWrapper>
@@ -147,7 +152,7 @@ const ReviewsEntry = (props) => {
         <VoteWrapper>
           Vote
         </VoteWrapper>
-      </ReviewDetailSubBlockWrapper>
+      </ReviewTitleCommentWrapper>
     </ReviewsEntryBlockWrapper>
   )
 }

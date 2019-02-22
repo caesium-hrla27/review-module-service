@@ -52,6 +52,13 @@ module.exports = {
         productId: req.productId,
       }));
   },
+  getProductDetail: (reqProductId) => {
+    return Product.find({
+      where: {
+        productId: reqProductId,
+      },
+    });
+  },
   getPreview: (reqProductId) => {
     return Review.findAll({
       limit: 10,

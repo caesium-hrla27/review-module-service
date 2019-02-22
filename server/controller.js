@@ -1,6 +1,17 @@
 const dbHelper = require('../database/dbHelper.js')
 
 module.exports = {
+  getProductDetail: (req, res) => {
+    var id = req.params.id;
+    dbHelper.getProductDetail(id)
+      .then((productDetail) => {
+        res.status(200).json(productDetail);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(404);
+      })
+  },
   getCount: (req, res) => {
     var id = req.params.id;
     dbHelper.getCount(id)

@@ -114,7 +114,7 @@ const ImageWrapper = styled.img`
   margin-right: 12px;
 `
 
-class App extends React.Component {
+class ReviewsApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -124,6 +124,7 @@ class App extends React.Component {
       moreReviewsToggle: false,
       moreInfoToggle: false,
       reviews: [],
+      product: {},
       count: 0,
     };
 
@@ -139,6 +140,7 @@ class App extends React.Component {
   componentDidMount() {
     this.fetchCount();
     this.fetchPreviews();
+    this.fetchProductDetail();
   }
 
   fetchPreviews() {
@@ -165,6 +167,24 @@ class App extends React.Component {
       .then((response) => {
         this.setState({
           reviews: [...this.state.reviews, ...response.data],
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  fetchProductDetail() {
+    var id = this.state.productId;
+    axios
+      .get(`/side-bar/product-detail/${id}`, {
+        params: {
+          productId: id,
+        },
+      })
+      .then((response) => {
+        this.setState({
+          product: response.data,
         });
       })
       .catch((err) => {
@@ -265,6 +285,7 @@ class App extends React.Component {
           fetchReviews={this.fetchReviews}
           moreReviewsToggle={this.state.moreReviewsToggle}
           handleMoreReviewsToggle={this.handleMoreReviewsToggle}
+          productDetail={this.state.product}
           />
         </RenderMenu>
 
@@ -292,4 +313,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default ReviewsApp;
