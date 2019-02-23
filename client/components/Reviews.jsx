@@ -25,9 +25,9 @@ const MoreReviews = styled.button`
   font-size: 14px;
   text-align: center;
 `
-const PopUp = styled.div`
+const PopUpReviews = styled.div`
   width: 100%;
-  height: ${props => props.toggle ? '100%' : '0'};
+  height: ${props => props.toggle ? 'auto' : '0'};
   overflow: hidden;
   `
   // transition: 250ms height ease-in;
@@ -48,15 +48,16 @@ const Reviews = (props) => {
           }
         })}
         {moreReviewsButton}
-        <PopUp toggle={moreReviewsToggle}>
+        <PopUpReviews toggle={moreReviewsToggle}>
           <PopUpWindow 
           toggleOn={moreReviewsToggle} 
           handleExit={props.handleMoreReviewsToggle} 
           reviews={props.reviews} 
           fetchReviews={props.fetchReviews}
           productDetail={props.productDetail}
+          count={props.count}
           />
-        </PopUp>
+        </PopUpReviews>
       </PreviewWrapper>
     </ExpandReview>
   );
