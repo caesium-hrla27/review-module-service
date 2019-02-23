@@ -1,10 +1,10 @@
 import React from 'react';
 
-const MoreInfo = (props) => {
+const MoreInfo = () => {
 
   return (
     <div>
-      MoreInfo
+      Learn more about this shoe!
     </div>
   )
 }
