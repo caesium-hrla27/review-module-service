@@ -138,17 +138,17 @@ color: #999;
 display: block;
 `
 
-const VoteWrapper = styled.ul`
-display: block;
-margin-left: 30%;
+const VoteWrapper = styled.div`
+display: flex;
 list-style: none;
-margin-block-start: 1em;
-margin-block-end: 1em;
-margin-inline-start: 0px;
-margin-inline-end: 0px;
-padding-inline-start: 40px;
+flex-direction: row;
 `
-const VoteList = styled.li`
+// margin-block-start: 1em;
+// margin-block-end: 1em;
+// margin-inline-start: 0px;
+// margin-inline-end: 0px;
+// padding-inline-start: 40px;
+const VoteList = styled.div`
 width: 110px;
 margin-right: 10px;
 color: #8D8D8D;
@@ -160,43 +160,53 @@ list-style: none;
 const VoteHelpful = styled.a`
 cursor: pointer;
 font-weight: normal;
-color: #000;
 margin-left: 0px;
 font-size: 12px;
 display: flex;
 flex-direction: row;
 height: 20px;
-line-height: 20px;
 padding-left: 0px;
 margin-right: 12px;
-
+line-height: 20px;
 `
-const FlagList = styled.li`
-margin-right: 10px;
+const FlagList = styled.div`
+font-size: 12px;
+line-height: 20px;
 color: #8D8D8D;
-display: inline-block;
-white-space: nowrap;
+font-family: “Helvetica Neue”,Helvetica,Arial,sans-serif;
 `
 // font-size: 0px;
 const ReviewBodyField = styled.div`
 display: block;
 width: 70%;
 `
-const VoteUp = styled.div`
-transform: rotate(-90deg);
+const VoteUp = styled.img`
 margin-right: 12px;
 font-size: 12px;
-height: 20px;
 line-height: 20px;
-width: 48px;
+width: 20px;
 `
-const VoteDown = styled.div`
-transform: rotate(90deg);
+const VoteDown = styled.img`
+transform: rotate(180deg);
 margin-right: 12px;
 font-size: 12px;
-height: 20px;
 line-height: 20px;
-width: 48px;
+width: 20px;
+`
+const VoteCount = styled.div`
+padding-right: 15px;
+`
+const FlagImg = styled.img`
+margin-right: 12px;
+font-size: 12px;
+line-height: 18px;
+width: 18px;
+cursor: pointer;
+visibility: ${props => props.flagUp ? 'hidden' : 'visible'}
+height: ${props => {props.flagUp ? 'auto' : '0px'}}
+`
+const FlagReported = styled.div`
+
 `
 
 export {
@@ -221,5 +231,8 @@ export {
   VoteList,
   FlagList,
   VoteUp,
-  VoteDown
+  VoteDown,
+  VoteCount,
+  FlagImg,
+  FlagReported
 }
