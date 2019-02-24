@@ -81,21 +81,8 @@ module.exports = {
       where: {
         productId: reqProductId,
       },
-      // include: [{
-      //   model: Product,
-      //   required: false,
-      //   as: 'productID',
-      //   attributes: ['ShoeID'],
-      // }],
       order: [[ 'createdAt', 'DESC' ]],
     })
-    // .then((err, reviews) => {
-    //   if (err) {
-    //     console.error(err);
-    //   } else {
-    //     console.log(reviews);
-    //   }
-    // })
   },
 };
 

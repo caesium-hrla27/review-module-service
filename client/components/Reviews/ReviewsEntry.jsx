@@ -1,206 +1,167 @@
 import React from 'react';
 import styled from 'styled-components';
 import StarRating from 'react-star-ratings';
+import ArrowOutline from '../assets/ArrowOutline.jsx';
+import ArrowFilled from '../assets/ArrowFilled.jsx';
+import { ReviewsEntryBlockWrapper, RatingSubBlockWrapper, 
+        ReviewEntryStarWrapper, RateBarBlockWrapper, 
+        BarTitleWrapper, Bar, Ball, BarDescriptionWrapper, 
+        Description, ReviewTitleCommentWrapper, TitleWrapper, 
+        CommentWrapper, UserInfoSubBlockWrapper, UserInfoWrapper, 
+        VoteWrapper, ReviewBodyField, Spacer, FlagList, FlagImg,
+        VoteHelpful, VoteList, VoteUp, VoteDown, VoteCount,
+        FlagReported} from '../style/styles.jsx';
 
-const ReviewsEntryBlockWrapper = styled.div`
-  display: block;
-  position: relative;
-  padding-top: 79px;
-`
-const RatingSubBlockWrapper = styled.div`
-  display: block;
-  flex-direction: column;
-  width: 30%;
-  height: 77px;
-  padding-right: 60px;
-`
-const StarWrapper = styled.div`
-  position: relative;
-  margin-bottom: 18px;
-`
+class ReviewsEntry extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      flagUp: false,
+      hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
+      hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
+    }
 
-const RateBarBlockWrapper = styled.div`
-  margin-bottom: 18px;
-  font-size: 11px;
-  font-weight: bold;
-  display: block;
-`
+    this.report = this.report.bind(this);
+    this.fillArrowUp = this.fillArrowUp.bind(this);
+    this.fillArrowDown = this.fillArrowDown.bind(this);
+    this.emptyArrowDown = this.emptyArrowDown.bind(this);
+    this.emptyArrowUp = this.emptyArrowUp.bind(this);
+  }
 
-const BarTitleWrapper = styled.div`
-  margin-bottom: 7px;
-  color: #111;
-  font-weight: normal;
-  font-size: 14px;
-  margin-top: 4px;
-  display: block;
-`
+  report(e) {
+    e.preventDefault();
+    this.setState({
+      flagUp: true,
+    });
+  }
 
-const Bar = styled.div`
-  margin-bottom: 15px;
-  background: #EBEBEB;
-  width: 100%;
-  border-radius: 10px;
-  height: 4px;
-`
+  fillArrowUp(e) {
+    e.preventDefault();
+    this.setState({
+      hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg',
+    })
+  }
 
-const Ball = styled.div`
-  margin-left: calc(${props => props.ball} - 5px);
-  background: #111;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  position: relative;
-  top: -2px;
-`
+  fillArrowDown(e) {
+    e.preventDefault();
+    this.setState({
+      hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg',
+    })
+    console.log('hey')
+  }
 
-const BarDescriptionWrapper = styled.div`
-  justify-content: space-between;
-  flex-direction: row;
-  display: flex;
-`
+  emptyArrowDown(e) {
+    e.preventDefault();
+    this.setState({
+      hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
+    })
+  }
 
-const Description = styled.div`
-  width: 48%;
-  font-size: 12px;
-  font-weight: normal;
-  white-space: nowrap;
-  color: #6D6D6D;
-  margin-top: 7px;
-  position: relative;
-  top: -15pdx;
+  emptyArrowUp(e) {
+    e.preventDefault();
+    this.setState({
+      hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
+    })
+  }
 
-`
+  render() {
+    const {
+      title, comment, rate, size, comfort,
+      durability, username, location, upvote,
+      downvote, response, pre_launch, createdAt,
+    } = this.props.review;
 
-const ReviewTitleCommentWrapper = styled.div`
-  display: block;
-  position: relative;
-  flex-direction: column;
-  left: 70%;
-`
+    const dateCreated = new Date(createdAt);
+    const dateArr = dateCreated.toString().split(' ');
+    const presentDate = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
+    let flag;
 
-const TitleWrapper = styled.div`
-  font-size: 14px;
-  line-height: 1.6;
-  color: #111;
-  text-transform: capitalize;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  display: block;
-`
-
-const CommentWrapper = styled.div`
-  font-size: 14px;
-  line-height: 1.7;
-  color: #111;
-  margin-bottom: 0;
-  word-wrap: break-word;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  display: block;
-`
-
-const UserInfoSubBlockWrapper = styled.div`
-  width: 70%;
-  float: right;
-  margin-left: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  display: block;
-`
-
-const UserInfoWrapper = styled.div`
-
-`
-
-const VoteWrapper = styled.div`
-
-`
-
-const ReviewsEntry = (props) => {
-  const {
-    title, comment, rate, size, comfort,
-    durability, username, location, upvote,
-    downvote, response, pre_launch, createdAt,
-  } = props.review;
-
-  const dateCreated = new Date(createdAt);
-  const dateArr = dateCreated.toString().split(' ');
-  const presentDate = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
-
-  return (
-    <ReviewsEntryBlockWrapper>
-      <RatingSubBlockWrapper>
-        <StarWrapper>
-          <StarRating
-            rating={rate}
-            starRatedColor="black"
-            numberOfStars={5}
-            starDimension="18px"
-            starSpacing="1px"
-            name="Rating"
-          />
-        </StarWrapper>
-        <RateBarBlockWrapper>
-          <BarTitleWrapper>
-            Size
-          </BarTitleWrapper>
-          <Bar>
-            <Ball ball={'30%'} />
-          </Bar>
-          <BarDescriptionWrapper>
-            <div>Runs small</div>
-            <div>Runs big</div>
-          </BarDescriptionWrapper>
-        </RateBarBlockWrapper>
-        <RateBarBlockWrapper>
-          <BarTitleWrapper>
-            Comfort
-          </BarTitleWrapper>
-          <Bar>
-            <Ball ball={'30%'} />
-          </Bar>
-          <BarDescriptionWrapper>
-            <div>Uncomfortable</div>
-            <div>Very Comfortable</div>
-          </BarDescriptionWrapper>
-        </RateBarBlockWrapper>
-        <RateBarBlockWrapper>
-          <BarTitleWrapper>
-            Durability
-          </BarTitleWrapper>
-          <Bar>
-            <Ball ball={'50%'}/>
-          </Bar>
-          <BarDescriptionWrapper>
-            <div>Not Durable</div>
-            <div>Very Durable</div>
-          </BarDescriptionWrapper>
-        </RateBarBlockWrapper>
-      </RatingSubBlockWrapper>
-      <ReviewTitleCommentWrapper>
-        <TitleWrapper>
-          {title}
-        </TitleWrapper>
-        <CommentWrapper>
-          {comment}
-        </CommentWrapper>
-      </ReviewTitleCommentWrapper>
-      <UserInfoSubBlockWrapper>
-        <UserInfoWrapper>
-          {presentDate + ' - ' + username + ' - ' + location}
-        </UserInfoWrapper>
-        <VoteWrapper>
-          Vote
-        </VoteWrapper>
-      </UserInfoSubBlockWrapper>
-    </ReviewsEntryBlockWrapper>
-  )
+    if (this.state.flagUp) {
+      flag = 'This post has been reported';
+    }
+    return (
+      <ReviewsEntryBlockWrapper>
+        <RatingSubBlockWrapper>
+          <ReviewEntryStarWrapper>
+            <StarRating
+              rating={rate}
+              starRatedColor="black"
+              numberOfStars={5}
+              starDimension="18px"
+              starSpacing="1px"
+              name="Rating"
+            />
+          </ReviewEntryStarWrapper>
+          <RateBarBlockWrapper>
+            <BarTitleWrapper>
+              Size
+            </BarTitleWrapper>
+            <Bar>
+              <Ball ball={(size * 100) + '%'} />
+            </Bar>
+            <BarDescriptionWrapper>
+              <div>Runs small</div>
+              <div>Runs big</div>
+            </BarDescriptionWrapper>
+          </RateBarBlockWrapper>
+          <RateBarBlockWrapper>
+            <BarTitleWrapper>
+              Comfort
+            </BarTitleWrapper>
+            <Bar>
+              <Ball ball={(comfort * 100) + '%'} />
+            </Bar>
+            <BarDescriptionWrapper>
+              <div>Uncomfortable</div>
+              <div>Very Comfortable</div>
+            </BarDescriptionWrapper>
+          </RateBarBlockWrapper>
+          <RateBarBlockWrapper>
+            <BarTitleWrapper>
+              Durability
+            </BarTitleWrapper>
+            <Bar>
+              <Ball ball={(durability * 100) + '%'}/>
+            </Bar>
+            <BarDescriptionWrapper>
+              <div>Not Durable</div>
+              <div>Very Durable</div>
+            </BarDescriptionWrapper>
+          </RateBarBlockWrapper>
+        </RatingSubBlockWrapper>
+        <ReviewBodyField>
+          <ReviewTitleCommentWrapper>
+            <TitleWrapper>
+              {title}
+            </TitleWrapper>
+            <CommentWrapper>
+              {comment}
+              <Spacer />
+            </CommentWrapper>
+          </ReviewTitleCommentWrapper>
+          <UserInfoSubBlockWrapper>
+            <UserInfoWrapper>
+              {presentDate + ' - ' + username + ' - ' + location}
+            </UserInfoWrapper>
+            <VoteWrapper>
+              <VoteList>
+                <VoteHelpful>
+                  <VoteUp src={this.state.hoverVoteUp} alt={'Up Vote Arrow'} onMouseEnter={this.fillArrowUp} onMouseLeave={this.emptyArrowUp} />
+                  <VoteCount>{upvote}</VoteCount>
+                  <VoteDown src={this.state.hoverVoteDown} alt={'Down Vote Arrow'} onMouseEnter={this.fillArrowDown} onMouseLeave={this.emptyArrowDown} />
+                  <VoteCount>{downvote}</VoteCount>
+                  {flag}
+                </VoteHelpful>
+              </VoteList>
+              <FlagList>
+                <FlagImg src={'https://s3-us-west-1.amazonaws.com/cs-nike-fec/Flag.png'} alt={'Flag!'} onClick={this.report} flagUp={this.state.flagUp} />
+              </FlagList>
+            </VoteWrapper>
+          </UserInfoSubBlockWrapper>
+        </ReviewBodyField>
+      </ReviewsEntryBlockWrapper>
+    )
+  }
 }
 
 export default ReviewsEntry;
