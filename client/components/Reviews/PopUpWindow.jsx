@@ -4,6 +4,103 @@ import ExitCross from '../assets/ExitCross.jsx';
 import ReviewsEntry from './ReviewsEntry.jsx';
 import StarRating from 'react-star-ratings';
 
+const PopUpWindow = (props) => {
+  return (
+    <PopUpWrapper toggle={props.toggleOn}>
+      <ReviewsNavBar toggleOn={props.toggleOn}>
+        <ShoeImgWrapper>
+          <ShoeImg src={props.productDetail.product_img} alt={props.productDetail.product_name} />
+          <ShoeImgInfo>
+            <ShoeName>
+              {props.productDetail.product_name}
+            </ShoeName>
+            <ShoePrice>
+              {props.productDetail.price}
+            </ShoePrice>
+          </ShoeImgInfo>
+        </ShoeImgWrapper>
+        <ExitButton onClick={props.handleExit}><span><ExitCross /></span></ExitButton>
+      </ReviewsNavBar>
+      <ReviewsWrapper>
+        <ReviewsInnerWrapper>
+          <ReviewsSection>
+            <ReviewsSummary>
+              <AverageStarWrapper>
+                <StarRating
+                rating={4.25}
+                starRatedColor="black"
+                numberOfStars={5}
+                starDimension="18px"
+                starSpacing="1px"
+                name="avgRatingProduct"
+                />
+              </AverageStarWrapper>
+              <NumberOfReviewsWrapper>
+                {props.count} Reviews
+              </NumberOfReviewsWrapper>
+              <AverageRatingsWrapper>
+                <AvgRateBarBlockWrapper>
+                  <AvgBarTitleWrapper>
+                    Size
+                  </AvgBarTitleWrapper>
+                  <AvgBar>
+                    <AvgBall ball={(0.8 * 100) + '%'} />
+                  </AvgBar>
+                  <AvgBarDescriptionWrapper>
+                    <div>Runs small</div>
+                    <div>Runs big</div>
+                  </AvgBarDescriptionWrapper>
+                </AvgRateBarBlockWrapper>
+                <AvgRateBarBlockWrapper>
+                  <AvgBarTitleWrapper>
+                    Comfort
+                  </AvgBarTitleWrapper>
+                  <AvgBar>
+                    <AvgBall ball={(0.7 * 100) + '%'} />
+                  </AvgBar>
+                  <AvgBarDescriptionWrapper>
+                    <div>Uncomfortable</div>
+                    <div>Very Comfortable</div>
+                  </AvgBarDescriptionWrapper>
+                </AvgRateBarBlockWrapper>
+                <AvgRateBarBlockWrapper>
+                  <AvgBarTitleWrapper>
+                    Durability
+                  </AvgBarTitleWrapper>
+                  <AvgBar>
+                    <AvgBall ball={(1 * 100) + '%'}/>
+                  </AvgBar>
+                  <AvgBarDescriptionWrapper>
+                    <div>Not Durable</div>
+                    <div>Very Durable</div>
+                  </AvgBarDescriptionWrapper>
+                </AvgRateBarBlockWrapper>
+              </AverageRatingsWrapper>
+            </ReviewsSummary>
+            <ReviewsSearchSort>
+              <SearchSortSelectorWrapper>
+                <SearchSortSelector>
+                  <SearchSortOptions>Sort by: Newest</SearchSortOptions>
+                  <SearchSortOptions>Sort by: Most Helpful</SearchSortOptions>
+                  <SearchSortOptions>Sort by: Highest to Lowest</SearchSortOptions>
+                  <SearchSortOptions>Sort by: Lowest to Highest</SearchSortOptions>
+                </SearchSortSelector>
+              </SearchSortSelectorWrapper>
+            </ReviewsSearchSort>
+            <ReviewTable>
+              {props.reviews.map((review) => {
+                return (
+                  <ReviewsEntry review={review} />
+                  )
+                })}
+            </ReviewTable>
+          </ReviewsSection>
+        </ReviewsInnerWrapper>
+      </ReviewsWrapper>
+    </PopUpWrapper>
+  );
+};
+
 const PopUpWrapper = styled.div`
 display: block;
 position: ${props => props.toggle ? 'absolute' : 'relative'};
@@ -38,6 +135,7 @@ overflow: hidden;
 background-color: white;
 visibility: ${props => props.toggleOn ? 'visible' : 'hidden'}
 position: fixed;
+font-family: 'Helvetica Neue',Helvetica,Verdana,Arial,Helvetica,sans-serif;
 `
 const ShoeImgWrapper = styled.div`
 display: flex;
@@ -55,9 +153,11 @@ padding-right: 12px;
 padding-top: 8px;
 display: inline-block;
 flex-direction: column;
+font-family: 'Helvetica Neue',Helvetica,Verdana,Arial,Helvetica,sans-serif;
+font-size: 14px;
+font-weight: normal;
 `
 const ShoeName = styled.p`
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 line-height: 1.714285714285714;
 margin: 0;
 padding: 0;
@@ -240,102 +340,4 @@ flex-direction: row;
 color: #6D6D6D;
 font-weight: normal;
 `
-
-const PopUpWindow = (props) => {
-  return (
-    <PopUpWrapper toggle={props.toggleOn}>
-      <ReviewsNavBar toggleOn={props.toggleOn}>
-        <ShoeImgWrapper>
-          <ShoeImg src={props.productDetail.product_img} alt={props.productDetail.product_name} />
-          <ShoeImgInfo>
-            <ShoeName>
-              {props.productDetail.product_name}
-            </ShoeName>
-            <ShoePrice>
-              {props.productDetail.price}
-            </ShoePrice>
-          </ShoeImgInfo>
-        </ShoeImgWrapper>
-        <ExitButton onClick={props.handleExit}><span><ExitCross /></span></ExitButton>
-      </ReviewsNavBar>
-      <ReviewsWrapper>
-        <ReviewsInnerWrapper>
-          <ReviewsSection>
-            <ReviewsSummary>
-              <AverageStarWrapper>
-                <StarRating
-                rating={4.25}
-                starRatedColor="black"
-                numberOfStars={5}
-                starDimension="18px"
-                starSpacing="1px"
-                name="avgRatingProduct"
-                />
-              </AverageStarWrapper>
-              <NumberOfReviewsWrapper>
-                {props.count} Reviews
-              </NumberOfReviewsWrapper>
-              <AverageRatingsWrapper>
-                <AvgRateBarBlockWrapper>
-                  <AvgBarTitleWrapper>
-                    Size
-                  </AvgBarTitleWrapper>
-                  <AvgBar>
-                    <AvgBall ball={(0.8 * 100) + '%'} />
-                  </AvgBar>
-                  <AvgBarDescriptionWrapper>
-                    <div>Runs small</div>
-                    <div>Runs big</div>
-                  </AvgBarDescriptionWrapper>
-                </AvgRateBarBlockWrapper>
-                <AvgRateBarBlockWrapper>
-                  <AvgBarTitleWrapper>
-                    Comfort
-                  </AvgBarTitleWrapper>
-                  <AvgBar>
-                    <AvgBall ball={(0.7 * 100) + '%'} />
-                  </AvgBar>
-                  <AvgBarDescriptionWrapper>
-                    <div>Uncomfortable</div>
-                    <div>Very Comfortable</div>
-                  </AvgBarDescriptionWrapper>
-                </AvgRateBarBlockWrapper>
-                <AvgRateBarBlockWrapper>
-                  <AvgBarTitleWrapper>
-                    Durability
-                  </AvgBarTitleWrapper>
-                  <AvgBar>
-                    <AvgBall ball={(1 * 100) + '%'}/>
-                  </AvgBar>
-                  <AvgBarDescriptionWrapper>
-                    <div>Not Durable</div>
-                    <div>Very Durable</div>
-                  </AvgBarDescriptionWrapper>
-                </AvgRateBarBlockWrapper>
-              </AverageRatingsWrapper>
-            </ReviewsSummary>
-            <ReviewsSearchSort>
-              <SearchSortSelectorWrapper>
-                <SearchSortSelector>
-                  <SearchSortOptions>Sort by: Newest</SearchSortOptions>
-                  <SearchSortOptions>Sort by: Most Helpful</SearchSortOptions>
-                  <SearchSortOptions>Sort by: Highest to Lowest</SearchSortOptions>
-                  <SearchSortOptions>Sort by: Lowest to Highest</SearchSortOptions>
-                </SearchSortSelector>
-              </SearchSortSelectorWrapper>
-            </ReviewsSearchSort>
-            <ReviewTable>
-              {props.reviews.map((review) => {
-                return (
-                <ReviewsEntry review={review} />
-                )
-              })}
-            </ReviewTable>
-          </ReviewsSection>
-        </ReviewsInnerWrapper>
-      </ReviewsWrapper>
-    </PopUpWrapper>
-  );
-};
-
 export default PopUpWindow;
