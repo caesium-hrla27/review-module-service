@@ -103,14 +103,14 @@ const PopUpWindow = (props) => {
 
 const PopUpWrapper = styled.div`
 display: block;
-position: ${props => props.toggle ? 'absolute' : 'relative'};
+position: ${props => props.toggle ? 'fixed' : 'relative'};
 margin: 0;
 padding: 0;
 border: 0;
-overflow: hidden;
+overflow: scroll;
 background: white;
 z-index: ${props => props.toggle ? '5' : '0'};
-height: ${props => props.toggle ? 'auto' : '0'};
+height: ${props => props.toggle ? '100vh' : '0'};
 top: 0;
 left: 0;
 width: 100%;
@@ -285,7 +285,6 @@ font-size: 14px;
 padding: 0 20px 0 0;
 width: 295px;
 height: 38px;
-background: transparent;
 outline: none;
 border: none;
 `
