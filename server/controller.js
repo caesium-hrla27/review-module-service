@@ -47,5 +47,11 @@ module.exports = {
   },
   getInfo: (req, res) => {
     
+  },
+  postUpVote: (req, res) => {
+
+  },
+  postDownVote: (req, res) => {
+    
   }
 }
