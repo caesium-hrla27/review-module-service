@@ -23,44 +23,12 @@ class ReviewsEntry extends React.Component {
     }
 
     this.report = this.report.bind(this);
-    this.fillArrowUp = this.fillArrowUp.bind(this);
-    this.fillArrowDown = this.fillArrowDown.bind(this);
-    this.emptyArrowDown = this.emptyArrowDown.bind(this);
-    this.emptyArrowUp = this.emptyArrowUp.bind(this);
-  }
-
-  componentDidUpdate() {
-
   }
 
   report() {
     this.setState({
       flagUp: true,
     });
-  }
-
-  fillArrowUp() {
-    this.setState({
-      hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg',
-    })
-  }
-
-  fillArrowDown() {
-    this.setState({
-      hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg',
-    })
-  }
-
-  emptyArrowDown() {
-    this.setState({
-      hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
-    })
-  }
-
-  emptyArrowUp() {
-    this.setState({
-      hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
-    })
   }
 
   render() {
