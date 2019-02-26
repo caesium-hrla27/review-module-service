@@ -15,7 +15,7 @@ const PopUpWindow = (props) => {
               {props.productDetail.product_name}
             </ShoeName>
             <ShoePrice>
-              {props.productDetail.price}
+              {'$' + props.productDetail.price}
             </ShoePrice>
           </ShoeImgInfo>
         </ShoeImgWrapper>
@@ -44,7 +44,7 @@ const PopUpWindow = (props) => {
                     Size
                   </AvgBarTitleWrapper>
                   <AvgBar>
-                    <AvgBall ball={(0.8 * 100) + '%'} />
+                    <AvgBall ball={(props.size * 100) + '%'} />
                   </AvgBar>
                   <AvgBarDescriptionWrapper>
                     <div>Runs small</div>
@@ -56,7 +56,7 @@ const PopUpWindow = (props) => {
                     Comfort
                   </AvgBarTitleWrapper>
                   <AvgBar>
-                    <AvgBall ball={(0.7 * 100) + '%'} />
+                    <AvgBall ball={(props.comfort * 100) + '%'} />
                   </AvgBar>
                   <AvgBarDescriptionWrapper>
                     <div>Uncomfortable</div>
@@ -68,7 +68,7 @@ const PopUpWindow = (props) => {
                     Durability
                   </AvgBarTitleWrapper>
                   <AvgBar>
-                    <AvgBall ball={(1 * 100) + '%'}/>
+                    <AvgBall ball={(props.durability * 100) + '%'}/>
                   </AvgBar>
                   <AvgBarDescriptionWrapper>
                     <div>Not Durable</div>
