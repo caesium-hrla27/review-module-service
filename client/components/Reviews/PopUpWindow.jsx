@@ -4,6 +4,10 @@ import ExitCross from '../assets/ExitCross.jsx';
 import ReviewsEntry from './ReviewsEntry.jsx';
 import StarRating from 'react-star-ratings';
 
+let avgSize = Math.random();
+let avgComfort = Math.random();
+let avgDurability = Math.random();
+
 const PopUpWindow = (props) => {
   return (
     <PopUpWrapper toggle={props.toggleOn}>
@@ -27,7 +31,7 @@ const PopUpWindow = (props) => {
             <ReviewsSummary>
               <AverageStarWrapper>
                 <StarRating
-                rating={4.25}
+                rating={Math.floor(Math.random() * 5)}
                 starRatedColor="black"
                 numberOfStars={5}
                 starDimension="18px"
@@ -44,7 +48,7 @@ const PopUpWindow = (props) => {
                     Size
                   </AvgBarTitleWrapper>
                   <AvgBar>
-                    <AvgBall ball={(props.size * 100) + '%'} />
+                    <AvgBall ball={(avgSize * 100) + '%'} />
                   </AvgBar>
                   <AvgBarDescriptionWrapper>
                     <div>Runs small</div>
@@ -56,7 +60,7 @@ const PopUpWindow = (props) => {
                     Comfort
                   </AvgBarTitleWrapper>
                   <AvgBar>
-                    <AvgBall ball={(props.comfort * 100) + '%'} />
+                    <AvgBall ball={(avgComfort * 100) + '%'} />
                   </AvgBar>
                   <AvgBarDescriptionWrapper>
                     <div>Uncomfortable</div>
@@ -68,7 +72,7 @@ const PopUpWindow = (props) => {
                     Durability
                   </AvgBarTitleWrapper>
                   <AvgBar>
-                    <AvgBall ball={(props.durability * 100) + '%'}/>
+                    <AvgBall ball={(avgDurability * 100) + '%'}/>
                   </AvgBar>
                   <AvgBarDescriptionWrapper>
                     <div>Not Durable</div>

@@ -261,9 +261,11 @@ class ReviewsApp extends React.Component {
     const reviewNumb = this.state.count;
 
     if (this.state.moreReviewsToggle) {
-			$("body").css("overflow", "hidden");
+      $("body").css("overflow", "hidden");
+      $("#Recommendations").css("display", "none");
 		} else {
-			$("body").css("overflow", "scroll");
+      $("body").css("overflow", "scroll");
+      $("#Recommendations").css("display", "block");
     }
     
     return (
