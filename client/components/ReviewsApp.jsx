@@ -193,7 +193,7 @@ class ReviewsApp extends React.Component {
   fetchProductDetail() {
     var id = this.state.productId;
     axios
-      .get(`/api/product-detail/${id}`, {
+      .get(`/api/product-detail`, {
         params: {
           id: id,
         },
