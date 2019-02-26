@@ -193,7 +193,6 @@ const ReviewsWrapper = styled.div`
 max-width: 100%;
 font-family: 'Helvetica Neue',Helvetica,Verdana,Arial,Helvetica,sans-serif;
 font-size: 12px;
-overflow-y: scroll;
 scroll-behavior: smooth;
 width: 100%;
 padding-right: 0;
