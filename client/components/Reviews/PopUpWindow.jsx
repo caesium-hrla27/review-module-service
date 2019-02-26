@@ -31,7 +31,7 @@ const PopUpWindow = (props) => {
             <ReviewsSummary>
               <AverageStarWrapper>
                 <StarRating
-                rating={Math.floor(Math.random() * 5)}
+                rating={props.rating}
                 starRatedColor="black"
                 numberOfStars={5}
                 starDimension="18px"

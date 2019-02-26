@@ -291,7 +291,7 @@ class ReviewsApp extends React.Component {
           </TitleWrapper>
           <ArrowHolder>
             <StarRatings
-              rating={4.3}
+              rating={Math.random() * 5}
               starRatedColor="black"
               numberOfStars={5}
               starDimension="18px"
