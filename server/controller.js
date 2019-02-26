@@ -6,7 +6,7 @@ module.exports = {
     var id = req.params.id;
     dbHelper.getProductDetail(id)
       .then((productDetail) => {
-        res.status(200).json(productDetail);
+        res.status(200).send(productDetail);
       })
       .catch((err) => {
         console.error(err);
