@@ -149,7 +149,7 @@ flex-direction: row;
 // margin-inline-end: 0px;
 // padding-inline-start: 40px;
 const VoteList = styled.div`
-width: 110px;
+width: 145px;
 margin-right: 10px;
 color: #8D8D8D;
 font-size: 0px;
@@ -180,21 +180,44 @@ const ReviewBodyField = styled.div`
 display: block;
 width: 70%;
 `
-const VoteUp = styled.img`
+const VoteUp = styled.div`
 margin-right: 12px;
 font-size: 12px;
-line-height: 20px;
+height: 20px;
 width: 20px;
+background-image: url("https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg");
+background-size: cover;
 `
-const VoteDown = styled.img`
+const FillVoteUp = styled.div`
+${VoteUp}:hover & {
+  height: 20px;
+  width: 20px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg');
+  background-size: cover;
+}
+`
+const VoteDown = styled.div`
 transform: rotate(180deg);
 margin-right: 12px;
 font-size: 12px;
-line-height: 20px;
+height: 20px;
 width: 20px;
+background-image: url("https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg");
+background-size: cover;
+`
+const FillVoteDown = styled.div`
+${VoteDown}:hover & {
+  height: 20px;
+  width: 20px;
+  background-image: url("https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg");
+  background-size: cover;
+}
 `
 const VoteCount = styled.div`
 padding-right: 15px;
+`
+const FlagWrapper = styled.div`
+
 `
 const FlagImg = styled.img`
 margin-right: 12px;
@@ -202,11 +225,13 @@ font-size: 12px;
 line-height: 18px;
 width: 18px;
 cursor: pointer;
-visibility: ${props => props.flagUp ? 'hidden' : 'visible'}
-height: ${props => {props.flagUp ? 'auto' : '0px'}}
+visibility: ${props => props.flagUp ? 'hidden' : 'visible'};
+height: auto;
 `
+// height: ${props => {props.flagUp ? 'auto' : '0px'}}
 const FlagReported = styled.div`
-
+position: relative;
+bottom: 27px;
 `
 
 export {
@@ -234,5 +259,7 @@ export {
   VoteDown,
   VoteCount,
   FlagImg,
-  FlagReported
+  FlagReported,
+  FillVoteUp,
+  FillVoteDown,
 }
