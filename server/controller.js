@@ -1,4 +1,5 @@
-const dbHelper = require('../database/dbHelper.js')
+const dbHelper = require('../database/dbHelper.js');
+const getAnyProduct = require('../database/dataGenerator');
 
 module.exports = {
   getProductDetail: (req, res) => {
@@ -25,6 +26,7 @@ module.exports = {
   },
   getPreview: (req, res) => {
     var id = req.query.productId;
+    
     dbHelper.getPreview(id)
       .then((data) => {
         res.status(200).send(data);
@@ -52,6 +54,6 @@ module.exports = {
 
   },
   postDownVote: (req, res) => {
-    
+
   }
 }

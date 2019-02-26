@@ -79,7 +79,6 @@ module.exports = {
   },
   getPreview: (reqProductId) => {
     return Review.findAll({
-      limit: 10,
       where: {
         productId: reqProductId,
       },
@@ -95,7 +94,6 @@ module.exports = {
   },
   getFullReviews: (reqProductId) => {
     return Review.findAll({
-      limit: 20,
       where: {
         productId: reqProductId,
       },
