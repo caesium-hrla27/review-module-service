@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import StarRatings from 'react-star-ratings';
 import axios from 'axios';
-
+import $ from 'jquery';
 import ShippingInfo from "./ShippingInfo.jsx";
 import Reviews from "./Reviews.jsx";
 import MoreInfo from "./MoreInfo.jsx";
@@ -244,6 +244,12 @@ class ReviewsApp extends React.Component {
     const { shippingInfoToggle, reviewsToggle, moreInfoToggle } = this.state;
     const reviewNumb = this.state.count;
 
+    if (this.state.moreReviewsToggle) {
+			$("body").css("overflow", "hidden");
+		} else {
+			$("body").css("overflow", "scroll");
+    }
+    
     return (
       <div>
         <SideMenuBarButton onClick={this.handleShippingClick}>

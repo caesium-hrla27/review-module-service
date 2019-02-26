@@ -18,6 +18,14 @@ router
   .get(controller.getFullview)
 
 router
+  .route('/review/upvote')
+  .post(controller.postUpVote)
+
+router
+  .route('/review/downvote')
+  .post(controller.postDownVote)
+
+router
   .route('/more-info')
   .get(controller.getInfo)
 
