@@ -52,6 +52,24 @@ module.exports = {
         productId: req.productId,
       }));
   },
+  seedProducts: (product) => {
+    return sequelize.sync()
+    .then(() => Product.create({
+      id: product.id,
+      product_name: product.product_name,
+      more_info: 'None',
+      product_img: product.product_img,
+      price: product.price,
+      sales: false,
+      sales_price: 0,
+    }))
+    .catch((err) => {
+      console.error(err);
+    });
+  },
+  checkProducts: () => {
+    return Product.findAndCountAll()
+  },
   getProductDetail: (reqProductId) => {
     return Product.find({
       where: {

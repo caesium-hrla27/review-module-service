@@ -22,11 +22,13 @@ Once your database is created, follow the following commands from the root of th
 
 1. `npm install`
 
-2. `psql review_module < ./reviewsqlfile.sql`
+2. `psql review_module < ./reviewDataBackup.sql`
 
 3. `npm start`
 
 Now the app should be rendering in port `3003` from the `localhost`.
+
+**If you want to generate more reviews,** uncomment the commentGenerator function in dataGenerator.js. Then use any number 'n', with the function: `commentGenerator(n)`.
 
 ## TODOs -- Please disregard from here on: 
 
@@ -46,7 +48,6 @@ Now the app should be rendering in port `3003` from the `localhost`.
 | [x] | Request review data to the server |
 | [x] | Create review page in the pop up window |
 | [x] | Create nav bar in the pop up window |
-| [ ] | Create dynamically rendering "More Info" menu |
 
 ### Back-end TODO
 
@@ -54,7 +55,6 @@ Now the app should be rendering in port `3003` from the `localhost`.
 | :-------: | ----- |
 | [x] | Learn how to use PostgreSQL |
 | [x] | Implement the database schema |
-| [ ] | Generate random review data |
+| [x] | Generate random review data |
 | [x] | Generate initial dummy data |
-| [ ] | Use sentencer |
-| [ ] | Refactor server for interaction with database |
+| [x] | Refactor server for interaction with database |
