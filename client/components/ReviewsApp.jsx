@@ -113,12 +113,23 @@ const ImageWrapper = styled.img`
   height: 24px;
   margin-right: 12px;
 `
+let tag = ['M', 'W'];
+let dec = [1,2,3,4,5,6,7,8,9,10];
+let randomTag = Math.floor(Math.random() * 2);
+if (randomTag === 2) {
+  randomTag -=1;
+}
+let randomNumb = Math.floor(Math.random() * 10);
+if (randomNumb === 10) {
+  randomNumb -= 1;
+}
+let initialShoeId = tag[randomTag] + dec[randomNumb];
 
 class ReviewsApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: "M1",
+      productId: initialShoeId,
       shippingInfoToggle: false,
       reviewsToggle: false,
       moreReviewsToggle: false,
@@ -138,6 +149,11 @@ class ReviewsApp extends React.Component {
   }
 
   componentDidMount() {
+    if (this.state.productId === '') {
+      this.setState({
+        productId: initialShoeId
+      })
+    }
     this.fetchCount();
     this.fetchPreviews();
     this.fetchProductDetail();

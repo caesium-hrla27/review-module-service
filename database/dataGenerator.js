@@ -213,7 +213,7 @@ const commentGenerator = function(numb) {
 
 // commentGenerator(300);
 
-let getAnyProduct = productTag[randomIntGen(2)] + productDigit[randomIntGen(10)];
+let getAnyProduct = () => productTag[randomIntGen(2)] + productDigit[randomIntGen(10)];
 
 module.exports = {
   getAnyProduct

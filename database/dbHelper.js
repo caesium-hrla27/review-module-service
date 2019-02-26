@@ -95,7 +95,7 @@ module.exports = {
   },
   getFullReviews: (reqProductId) => {
     return Review.findAll({
-      limit: 3,
+      limit: 20,
       where: {
         productId: reqProductId,
       },
