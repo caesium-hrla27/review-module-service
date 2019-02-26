@@ -9,7 +9,7 @@ const PopUpWindow = (props) => {
     <PopUpWrapper toggle={props.toggleOn}>
       <ReviewsNavBar toggleOn={props.toggleOn}>
         <ShoeImgWrapper>
-          <ShoeImg src={props.productDetail.product_img} alt={props.productDetail.product_name} />
+          <ShoeImg image={props.productDetail.product_img} alt={props.productDetail.product_name} />
           <ShoeImgInfo>
             <ShoeName>
               {props.productDetail.product_name}
@@ -141,9 +141,11 @@ const ShoeImgWrapper = styled.div`
 display: flex;
 flex-direction: row;
 `
-const ShoeImg = styled.img`
-max-width: 60px;
-max-height: 60px;
+const ShoeImg = styled.div`
+width: 60px;
+height: 60px;
+background-image: url(${props => props.image});
+background-size: cover;
 `
 const ShoeImgInfo = styled.div`
 width: 100%;
