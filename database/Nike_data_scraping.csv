@@ -1,0 +1,21 @@
+#shoeId,Shoe url,Shoe name,price,More Info,review,sales
+M1,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-jordan-1-retro-high-og-shoe-WR35rK.jpg,Air Jordan 1 Retro High OG, 160
+M2,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-vapormax-2019-shoe-wr4C0z.jpg,Nike Air VaporMax,190
+M3,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-jordan-1-mid-mens-shoe-1zMCFJ.jpg,Air Jordan 1 Mid,110
+M4,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-jordan-legacy-312-mens-shoe-WsJcP7.jpg,Air Jordan Legacy 312,150
+M5,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-vapormax-utility-mens-shoe-l6QV6Q.jpg,Nike Air VaporMax Utility,190
+M6,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-max-plus-premium-mens-shoe-43ctl5.jpg,Nike Air Max Plus Premium,179
+M7,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-vapormax-plus-mens-shoe-w4xgr4.jpg,Nike Air VaporMax Plus,190
+M8,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-jordan-9-retro-mens-shoe-s4pgC0.jpg,Air Jordan 9 Retro,190
+M9,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-max-270-bowfin-mens-shoe-wScJCx.jpg,Nike Air Max 270 Bowfin,160
+M10,https://s3-us-west-1.amazonaws.com/cs-nike-fec/vapormax-gliese-mens-shoe-JRgxlW.jpg,Nike VaporMax Gliese,190
+W1,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-zoom-pegasus-35-womens-running-shoe-k960G1.jpg,Nike Air Zoom Pegasus 35,120
+W2,https://s3-us-west-1.amazonaws.com/cs-nike-fec/epic-react-flyknit-2-womens-running-shoe-5r9NpJ.jpg,Nike Epic React Flyknit 2,150
+W3,https://s3-us-west-1.amazonaws.com/cs-nike-fec/free-rn-2018-womens-running-shoe-zE8Je3.jpg,Nike Free RN 2018,100
+W4,https://s3-us-west-1.amazonaws.com/cs-nike-fec/zoom-pegasus-turbo-womens-running-shoe-7DrhsB.jpg,Nike Zoom Pegasus Turbo,180
+W5,https://s3-us-west-1.amazonaws.com/cs-nike-fec/flex-rn-2018-womens-running-shoe-wzMNdD.jpg,Nike Flex RN 2018,67.97
+W6,https://s3-us-west-1.amazonaws.com/cs-nike-fec/zoom-fly-sp-fast-womens-running-shoe-t1nDct.jpg,Nike Zoom Fly SP Fast,170
+W7,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-huarache-city-womens-shoe-1qTbM1PK.jpg,Nike Air Huarache City,140
+W8,https://s3-us-west-1.amazonaws.com/cs-nike-fec/air-zoom-pegasus-35-premium-womens-running-shoe-8MAy2z.jpg,Nike Air Zoom Pegasus 35 Premium,135
+W9,https://s3-us-west-1.amazonaws.com/cs-nike-fec/renew-rival-premium-floral-womens-running-shoe-wvjh75.jpg,Nike Renew Rival Premium Floral,58.97
+W10,https://s3-us-west-1.amazonaws.com/cs-nike-fec/epic-react-flyknit-metallic-premium-womens-running-shoe-cvMcDT.jpg,Nike Epic React Flyknit Metallic Premium,99.97
