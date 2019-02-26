@@ -10,7 +10,8 @@ import { ReviewsEntryBlockWrapper, RatingSubBlockWrapper,
         CommentWrapper, UserInfoSubBlockWrapper, UserInfoWrapper, 
         VoteWrapper, ReviewBodyField, Spacer, FlagList, FlagImg,
         VoteHelpful, VoteList, VoteUp, VoteDown, VoteCount,
-        FlagReported} from '../style/styles.jsx';
+        FlagReported, FillVoteUp, FillVoteDown} 
+from '../style/styles.jsx';
 
 class ReviewsEntry extends React.Component {
   constructor (props) {
@@ -28,37 +29,35 @@ class ReviewsEntry extends React.Component {
     this.emptyArrowUp = this.emptyArrowUp.bind(this);
   }
 
-  report(e) {
-    e.preventDefault();
+  componentDidUpdate() {
+
+  }
+
+  report() {
     this.setState({
       flagUp: true,
     });
   }
 
-  fillArrowUp(e) {
-    e.preventDefault();
+  fillArrowUp() {
     this.setState({
       hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg',
     })
   }
 
-  fillArrowDown(e) {
-    e.preventDefault();
+  fillArrowDown() {
     this.setState({
       hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/FilledArrow.jpeg',
     })
-    console.log('hey')
   }
 
-  emptyArrowDown(e) {
-    e.preventDefault();
+  emptyArrowDown() {
     this.setState({
       hoverVoteUp: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
     })
   }
 
-  emptyArrowUp(e) {
-    e.preventDefault();
+  emptyArrowUp() {
     this.setState({
       hoverVoteDown: 'https://s3-us-west-1.amazonaws.com/cs-nike-fec/EmptyArrow.jpeg',
     })
@@ -146,15 +145,21 @@ class ReviewsEntry extends React.Component {
             <VoteWrapper>
               <VoteList>
                 <VoteHelpful>
-                  <VoteUp src={this.state.hoverVoteUp} alt={'Up Vote Arrow'} onMouseEnter={this.fillArrowUp} onMouseLeave={this.emptyArrowUp} />
+                  <VoteUp >
+                  <FillVoteUp />
+                  </VoteUp>
                   <VoteCount>{upvote}</VoteCount>
-                  <VoteDown src={this.state.hoverVoteDown} alt={'Down Vote Arrow'} onMouseEnter={this.fillArrowDown} onMouseLeave={this.emptyArrowDown} />
+                  <VoteDown>
+                    <FillVoteDown />
+                  </VoteDown>
                   <VoteCount>{downvote}</VoteCount>
-                  {flag}
                 </VoteHelpful>
               </VoteList>
               <FlagList>
                 <FlagImg src={'https://s3-us-west-1.amazonaws.com/cs-nike-fec/Flag.png'} alt={'Flag!'} onClick={this.report} flagUp={this.state.flagUp} />
+                <FlagReported>
+                {flag}
+                </FlagReported>
               </FlagList>
             </VoteWrapper>
           </UserInfoSubBlockWrapper>
